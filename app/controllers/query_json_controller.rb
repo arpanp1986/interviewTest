@@ -3,7 +3,6 @@ class QueryJsonController < ApplicationController
 
   def search_using_jmespath_expresion
     params.require(:expression)
-    # binding.break
     # Expressions
     #[?name.common == 'Iran']
     # [?population > `83992953`] || [?name.common == `Saudi Arabia`]
