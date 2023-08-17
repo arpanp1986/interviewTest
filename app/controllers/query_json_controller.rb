@@ -31,7 +31,7 @@ class QueryJsonController < ApplicationController
         paginated_data = Kaminari.paginate_array(result).page(params[:page]).per(params[:per])
         render json: paginated_data.to_json, status: :ok
       else
-        render json: "No result for your expression, please check your expression!".to_json, status: :ok
+        render json: "No result for your expression!".to_json, status: :ok
       end
     rescue => e
       render json: e.message.to_json, status: :unprocessable_entity
