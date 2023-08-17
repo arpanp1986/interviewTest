@@ -4,13 +4,10 @@ class QueryJsonController < ApplicationController
   def search_using_jmespath_expresion
     begin
       params.require(:expression)
-    # Expressions
-    #[?name.common == 'Iran']
-    # [?population > `83992953`] || [?name.common == `Saudi Arabia`]
-    #[?languages.eng == 'English'].name.common
-    #[?area == `9706961.0`]
+
       result = JMESPath.search(params[:expression], data)
       paginated_data = Kaminari.paginate_array(result).page(params[:page]).per(params[:per])
+
       render json: paginated_data, status: :ok
     rescue => e
       render json: e.message.to_json, status: :unprocessable_entity
@@ -34,7 +31,41 @@ class QueryJsonController < ApplicationController
         render json: sorted_result.to_json, status: :unprocessable_entity
       end
     rescue => e
-      render json: e.message.to_json, status: :unprocessable_entity
+      render json: {"Error": e.message}.to_json, status: :unprocessable_entity
+    end
+  end
+
+  def country_by_name_using_jsonb
+    begin
+      params.require(:country_name)
+      country = Country.country_by_name(params[:country_name])
+
+      if country.present?
+        render json: country.to_json, status: :ok
+      else
+        render json: {"Message": "No country with Name: #{params[:country_name]}"}.to_json, status: :ok
+      end
+    rescue => e
+      render json: {"Error": e.message}.to_json, status: :unprocessable_entity
+    end
+  end
+
+  def search_and_sort_using_jsonb
+    begin
+      params.require(:data_type) && params.require(:sort_by) && params.require(:order_by)
+
+      data = if params[:data_type] == 'integer'
+              Country.sorted_list_by_for_int(params[:sort_by], params[:order_by])
+            else
+              Country.sorted_list_by_for_text(params[:sort_by], params[:order_by])
+            end
+            if data.present?
+              render json: data.to_json, ststus: :ok
+            else
+              render json: { "Message": "No data for provides search #{params[:sort_by]}"}
+            end
+    rescue => e
+      render json: {"Error": e.message}.to_json, status: :unprocessable_entity
     end
   end
 
