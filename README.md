@@ -7,9 +7,9 @@ To run the application locally
 
 * Clone the repository
 
-* Run command `bundle install` to install all the Gems.
+* Run command `bundle install` to install all the Gems
 
-* Run all the unit tests before testing the endpoints manually by running `bundle exec rspec`.
+* Run all the unit tests before testing the endpoints manually by running `bundle exec rspec`
 
 * Run command `bundle exec rails s` to start server on localhost:3000
 
@@ -20,11 +20,13 @@ To run the application locally
 `
 # API endpoints
 
-Folowing is the list of all API endpoints with all possible status code and responses.
+Following is the list of all API endpoints with all possible status code and responses.
 
 ### Request `GET /countries`
 
-```localhost:3001/countries?expression=[?name.common == 'Iran']```
+```
+localhost:3001/countries?expression=[?name.common == 'Iran']
+```
 
 #### Status Codes
 
@@ -33,10 +35,11 @@ Folowing is the list of all API endpoints with all possible status code and resp
 | 200           | Successfully completed the request  |
 | 401           | unauthorised request                |
 | 422           | Unprocessable entiry                |
-| 404           | Invalid route, route not found      |
+| 404           | Invalid route      |
 
 #### Response
-```[
+```
+[
     {
         "name": {
             "common": "Iran",
@@ -81,9 +84,9 @@ Folowing is the list of all API endpoints with all possible status code and resp
 
 * `expression` param is reuired. If you do not include it or misspell with your request then you will get following error.
 ```
-"param is missing or the value is empty: expression"
+  "param is missing or the value is empty: expression"
 ```
-#### Few examples of requests with valid JMESPath expressions
+#### Few examples of valid JMESPath expressions
 
 * ```[?population > `83992953`] || [?name.common == `Saudi Arabia`]```
 * ```[?languages.eng == 'English']```
@@ -93,7 +96,9 @@ Find more information about JMESPath here: https://jmespath.org/
 
 ### Request `GET /sorted_data`
 
-```localhost:3001/sorted_data?sort_by=population&order_by=desc&page=1&per=5```
+```
+localhost:3001/sorted_data?sort_by=population&order_by=desc&page=1&per=5
+```
 
 #### Status Codes
 
@@ -102,7 +107,7 @@ Find more information about JMESPath here: https://jmespath.org/
 | 200           | Successfully completed the request  |
 | 401           | unauthorised request                |
 | 422           | Unprocessable entiry                |
-| 404           | Invalid route, route not found      |
+| 404           | Invalid route      |
 
 #### Response
 ```
@@ -121,11 +126,11 @@ Find more information about JMESPath here: https://jmespath.org/
 
 * `sort_by` and `order_by` are reuired params. If you do not include it or misspell with your request then you will get following error.
 ```
-"param is missing or the value is empty: sort_by"
+  "param is missing or the value is empty: sort_by"
 ```
-* If you try to apply sorting on a key (ex: language) that is not an array of numbers or integers then JMESPath can not sort the data and you will receive following error.
+* If you try to apply sorting on a key (ex: language) that is not an array of numbers or integers then JMESPath can not sort the data and   you will receive following error.
 ```
-"function sort() expects values to be an array of numbers or integers"
+  "function sort() expects values to be an array of numbers or integers"
 ```
 
 ## Use this if you are a CURL fan :) 
