@@ -1,3 +1,4 @@
+[![RSpec Tests](https://github.com/arpanp1986/interviewTest/actions/workflows/rspec.yml/badge.svg)](https://github.com/arpanp1986/interviewTest/actions/workflows/rspec.yml)
 # README
 
 To run the application locally
