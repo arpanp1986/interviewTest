@@ -127,10 +127,22 @@ Find more information about JMESPath here: https://jmespath.org/
 "function sort() expects values to be an array of numbers or integers"
 ```
 
-# Use this if you are a CURL fan :) 
+## Use this if you are a CURL fan :) 
 
 ```
 curl -X GET \
   -H "Authorization: Basic Zm9vOmJhcg==" \
   "http://localhost:3001/sorted_data?sort_by=population&order_by=desc&page=1&per=15"
 ```
+## Few useful screenshots if you are a Postman fan :) 
+
+Use Bacic Auth under `Authorization` tab and add secrets (Please rechout to me if you are unable to find credential.)
+
+<kbd><img width="1269" alt="Screenshot 2023-08-17 at 11 53 35 AM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/d1e05aa4-027f-4b78-ac16-755e76e09688"></kbd>
+
+Make sure to include necessary `Headers`
+
+<kbd>
+  <img width="1265" alt="Screenshot 2023-08-17 at 11 58 23 AM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/87796411-6490-4bf3-9b9f-931fd5eafe19">
+</kbd>
+
