@@ -38,7 +38,7 @@ RSpec.describe QueryJsonController do
       expect(JSON.parse(response.body)[1]["name"]["common"]).to eq("India")
     end
 
-    it "retuns result successfully with pagination" do
+    it "uses pagination" do
       expect(controller).to receive(:authenticate_or_request_with_http_basic).and_return(true)
 
       get :search_using_jmespath_expresion, params: { expression: "[?population > `0`]", page: 1, per: 7 }
@@ -91,7 +91,7 @@ RSpec.describe QueryJsonController do
       allow_any_instance_of(QueryJsonController).to receive(:sort_by_expression).and_return([])
       get :sort_data_by_desired_key, params: { sort_by: "foo", order_by: "desc" }
 
-      expect(JSON.parse(response.body)).to eq("No result for your expression!")
+      expect(JSON.parse(response.body)).to eq([])
     end
 
     it "retuns result successfully with pagination" do

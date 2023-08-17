@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To run the application locally
 
-Things you may want to cover:
+* Install Ruby version 3.1.1
 
-* Ruby version
+* Clone the repository
 
-* System dependencies
+* Run command `bundle install` to install all the Gems.
 
-* Configuration
+* Run all the unit tests before testing the endpoints manually by running `bundle exec rspec`.
 
-* Database creation
+* Run command `bundle exec rails s` to start server on localhost:3000
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Make a curl request for smoke testing:
+  `curl -X GET \
+  -H "Authorization: Basic Zm9vOmJhcg==" \
+  "http://localhost:3000/sorted_data?sort_by=population&order_by=desc&page=1&per=15"
+`
