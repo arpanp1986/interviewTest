@@ -35,7 +35,7 @@ Following is the list of all API endpoints with all possible status code and res
 ### Request `GET /countries`
 
 ```
-localhost:3001/countries?expression=[?name.common == 'Iran']
+localhost:3000/countries?expression=[?name.common == 'Iran']
 ```
 
 #### Status Codes
@@ -109,7 +109,7 @@ Find more information about JMESPath here: https://jmespath.org/
 ### Request `GET /sorted_data`
 
 ```
-localhost:3001/sorted_data?sort_by=population&order_by=desc&page=1&per=5
+localhost:3000/sorted_data?sort_by=population&order_by=desc&page=1&per=5
 ```
 
 #### Status Codes
@@ -165,7 +165,7 @@ Following is the list of all API endpoints with all possible status code and res
 ### Request `GET /countries_jsonb`
 
 ```
-localhost:3001/countries_jsonb?country_name=India
+localhost:3000/countries_jsonb?country_name=India
 ```
 
 #### Status Codes
@@ -271,7 +271,7 @@ localhost:3001/countries_jsonb?country_name=India
 ### Request `GET /search_sort_jsonb`
 
 ```
-localhost:3001/search_sort_jsonb?data_type=integer&sort_by=population&order_by=desc&page=1&per=10
+localhost:3000/search_sort_jsonb?data_type=integer&sort_by=population&order_by=desc&page=1&per=10
 ```
 
 #### Status Codes
@@ -326,7 +326,7 @@ localhost:3001/search_sort_jsonb?data_type=integer&sort_by=population&order_by=d
 ```
 curl -X GET \
   -H "Authorization: Basic Zm9vOmJhcg==" \
-  "http://localhost:3001/sorted_data?sort_by=population&order_by=desc&page=1&per=15"
+  "http://localhost:3000/sorted_data?sort_by=population&order_by=desc&page=1&per=15"
 ```
 ### Few useful screenshots if you are a Postman fan :) 
 ### JMESPath implementation
