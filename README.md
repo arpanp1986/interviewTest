@@ -7,6 +7,10 @@ To run the application locally
 
 * Clone the repository
 
+* Run command `bundle install` to install all the Gems.
+
+* Run all the unit tests before testing the endpoints manually by running `bundle exec rspec`.
+
 * Run command `bundle install` to install all the Gems
 
 * Run all the unit tests before testing the endpoints manually by running `bundle exec rspec`
@@ -18,6 +22,7 @@ To run the application locally
   -H "Authorization: Basic Zm9vOmJhcg==" \
   "http://localhost:3000/sorted_data?sort_by=population&order_by=desc&page=1&per=15"
 `
+
 # API endpoints
 
 Following is the list of all API endpoints with all possible status code and responses.
