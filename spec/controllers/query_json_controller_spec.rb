@@ -138,11 +138,11 @@ RSpec.describe QueryJsonController do
 
     it "returns country if present with provided name" do
       expect(controller).to receive(:authenticate_or_request_with_http_basic).and_return(true)
-      allow(Country).to receive(:country_by_name).and_return(double("India"))
+      allow(Country).to receive(:country_by_name).and_return([{"country": "India"}])
       get :country_by_name_using_jsonb, params: { country_name: "India"}
 
       expect(response.status).to eq(200)
-      expect(JSON.parse(response.body)["name"]).to eq("India")
+      expect(JSON.parse(response.body)[0]["country"]).to eq("India")
     end
   end
 
@@ -209,5 +209,4 @@ RSpec.describe QueryJsonController do
       expect(JSON.parse(response.body)).to eq([{"foo"=>"bar"}])
     end
   end
-
 end
