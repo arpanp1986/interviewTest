@@ -362,3 +362,9 @@ Use Bacic Auth under `Authorization` tab and add secrets (Please rechout to me i
 <kbd>
 <img width="1235" alt="Screenshot 2023-08-18 at 9 39 12 AM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/d2f211f9-d0a4-40dc-889c-80c2bf439de3">
 </kbd>
+
+### Finally a sample screenshot of code coverage
+
+<kbd>
+  <img width="1235" alt="Screenshot 2023-08-18 at 9 39 12 AM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/885022da-11ad-45cd-99d0-d9e2b0b98657">
+</kbd>
