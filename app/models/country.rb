@@ -1,5 +1,4 @@
 class Country < ApplicationRecord
-
   def self.country_by_name(name)
     Country.where("data -> 'name' ->> 'common' = ?", "#{name}")
   end

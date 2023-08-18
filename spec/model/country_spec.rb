@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Country do
-
   before(:all) do
     file = File.join(Rails.root, 'spec', 'data', 'countries_test_data.json')
     data = JSON.parse(File.read(file))

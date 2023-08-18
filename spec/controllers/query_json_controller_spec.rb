@@ -15,7 +15,7 @@ RSpec.describe QueryJsonController do
       get :search_using_jmespath_expresion, params: {}
 
       expect(response.status).to eq(422)
-      expect(JSON.parse(response.body)).to eq("param is missing or the value is empty: expression")
+      expect(JSON.parse(response.body)).to eq("Error" => "param is missing or the value is empty: expression")
     end
 
     it "returns data when expresion is provided" do
@@ -138,11 +138,11 @@ RSpec.describe QueryJsonController do
 
     it "returns country if present with provided name" do
       expect(controller).to receive(:authenticate_or_request_with_http_basic).and_return(true)
-      allow(Country).to receive(:country_by_name).and_return(double("India"))
+      allow(Country).to receive(:country_by_name).and_return([{"country": "India"}])
       get :country_by_name_using_jsonb, params: { country_name: "India"}
 
       expect(response.status).to eq(200)
-      expect(JSON.parse(response.body)["name"]).to eq("India")
+      expect(JSON.parse(response.body)[0]["country"]).to eq("India")
     end
   end
 
@@ -181,7 +181,6 @@ RSpec.describe QueryJsonController do
       expect(JSON.parse(response.body)).to eq("Error" => "param is missing or the value is empty: order_by")
     end
 
-
     it "returns message if no data for provided search is present for integer data type" do
       expect(controller).to receive(:authenticate_or_request_with_http_basic).and_return(true)
       allow(Country).to receive(:sorted_list_by_for_int).and_return([])
@@ -209,5 +208,4 @@ RSpec.describe QueryJsonController do
       expect(JSON.parse(response.body)).to eq([{"foo"=>"bar"}])
     end
   end
-
 end

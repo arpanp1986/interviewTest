@@ -10,7 +10,7 @@ class QueryJsonController < ApplicationController
 
       render json: paginated_data, status: :ok
     rescue => e
-      render json: e.message.to_json, status: :unprocessable_entity
+      render json: {"Error": e.message}.to_json, status: :unprocessable_entity
     end
   end
 
@@ -41,7 +41,8 @@ class QueryJsonController < ApplicationController
       country = Country.country_by_name(params[:country_name])
 
       if country.present?
-        render json: country.to_json, status: :ok
+        paginated_data = Kaminari.paginate_array(country).page(params[:page]).per(params[:per])
+        render json: paginated_data.to_json, status: :ok
       else
         render json: {"Message": "No country with Name: #{params[:country_name]}"}.to_json, status: :ok
       end
@@ -54,13 +55,14 @@ class QueryJsonController < ApplicationController
     begin
       params.require(:data_type) && params.require(:sort_by) && params.require(:order_by)
 
-      data = if params[:data_type] == 'integer'
+      result = if params[:data_type] == 'integer'
               Country.sorted_list_by_for_int(params[:sort_by], params[:order_by])
             else
               Country.sorted_list_by_for_text(params[:sort_by], params[:order_by])
             end
-            if data.present?
-              render json: data.to_json, ststus: :ok
+            if result.present?
+              paginated_data = Kaminari.paginate_array(result).page(params[:page]).per(params[:per])
+              render json: paginated_data.to_json, ststus: :ok
             else
               render json: { "Message": "No data for provides search #{params[:sort_by]}"}
             end
@@ -68,6 +70,8 @@ class QueryJsonController < ApplicationController
       render json: {"Error": e.message}.to_json, status: :unprocessable_entity
     end
   end
+
+private
 
   def sort_by_expression(data)
     JMESPath.search("sort_by(@, &#{params[:sort_by]})", data)
