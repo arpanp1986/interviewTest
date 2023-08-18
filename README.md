@@ -329,23 +329,40 @@ curl -X GET \
   "http://localhost:3000/sorted_data?sort_by=population&order_by=desc&page=1&per=15"
 ```
 ### Few useful screenshots if you are a Postman fan :) 
-### JMESPath implementation
+
+## Authorization
 
 Use Bacic Auth under `Authorization` tab and add secrets (Please rechout to me if you are unable to find credential.)
 
-<kbd><img width="1269" alt="Screenshot 2023-08-17 at 11 53 35 AM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/d1e05aa4-027f-4b78-ac16-755e76e09688"></kbd>
+<kbd>
+  <img width="1235" alt="Screenshot 2023-08-18 at 9 49 11 AM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/af670dca-c0a0-4692-a972-f62d0bf5c661">
+</kbd>
 
-Make sure to include necessary `Headers`
+## Headers
 
 <kbd>
-  <img width="1265" alt="Screenshot 2023-08-17 at 11 58 23 AM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/87796411-6490-4bf3-9b9f-931fd5eafe19">
+  <img width="1236" alt="Screenshot 2023-08-18 at 9 50 06 AM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/b26fe8be-9170-43dc-8f00-2adcf00d588c">
 </kbd>
+
+### JMESPath implementation
+<kbd>
+<img width="1232" alt="Screenshot 2023-08-18 at 9 46 58 AM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/73e7e871-316e-44d3-9ee0-0e090c026846">
+</kbd>
+
+
+
+<kbd>
+<img width="1233" alt="Screenshot 2023-08-18 at 9 42 51 AM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/21edb200-ae8b-40a7-85b1-f3636d25d4b9">
+</kbd>
+
 
 ### Postgres and jsonb implementation
 <kbd>
-<img width="1224" alt="Screenshot 2023-08-17 at 10 41 14 PM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/d0159b35-f5ac-4d40-b59e-f3d08b1b8561">
+<img width="1234" alt="Screenshot 2023-08-18 at 9 41 03 AM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/ade8f15e-d1e6-4341-b1b9-d0481d799ff8">
 </kbd>
 
+
+
 <kbd>
-<img width="1224" alt="Screenshot 2023-08-17 at 10 42 39 PM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/9f39e80b-5216-4565-bb63-b915d05072e9">
+<img width="1235" alt="Screenshot 2023-08-18 at 9 39 12 AM" src="https://github.com/arpanp1986/interviewTest/assets/3536808/d2f211f9-d0a4-40dc-889c-80c2bf439de3">
 </kbd>
