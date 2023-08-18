@@ -15,7 +15,7 @@ RSpec.describe QueryJsonController do
       get :search_using_jmespath_expresion, params: {}
 
       expect(response.status).to eq(422)
-      expect(JSON.parse(response.body)).to eq("param is missing or the value is empty: expression")
+      expect(JSON.parse(response.body)).to eq("Error" => "param is missing or the value is empty: expression")
     end
 
     it "returns data when expresion is provided" do
@@ -180,7 +180,6 @@ RSpec.describe QueryJsonController do
       expect(response.status).to eq(422)
       expect(JSON.parse(response.body)).to eq("Error" => "param is missing or the value is empty: order_by")
     end
-
 
     it "returns message if no data for provided search is present for integer data type" do
       expect(controller).to receive(:authenticate_or_request_with_http_basic).and_return(true)

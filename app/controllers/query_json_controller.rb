@@ -10,7 +10,7 @@ class QueryJsonController < ApplicationController
 
       render json: paginated_data, status: :ok
     rescue => e
-      render json: e.message.to_json, status: :unprocessable_entity
+      render json: {"Error": e.message}.to_json, status: :unprocessable_entity
     end
   end
 
