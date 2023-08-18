@@ -7,13 +7,11 @@ To run the application locally
 
 * Clone the repository
 
-* Run command `bundle install` to install all the Gems.
+* cd in to `interviewTest` and run command `bundle install` to install all the Ruby Gems
 
-* Run all the unit tests before testing the endpoints manually by running `bundle exec rspec`.
+* Run `bundle exec rake db:test:prepare` to prepare your test databse before running unit tests
 
-* Run command `bundle install` to install all the Gems
-
-* Run all the unit tests before testing the endpoints manually by running `bundle exec rspec`
+* Run all the **unit tests** before testing the endpoints manually by running `bundle exec rspec` or find latest one under Github Actions
 
 * Run command `bundle exec rails s` to start server on localhost:3000
 
@@ -24,13 +22,13 @@ To run the application locally
 
 # I have included two implementations
   * Using JMESPath search implementation
-  * Using postgres DB with columntype as jsonb
+  * Using postgres DB with columntype as jsonb datatype
     
 Both are efficient and powerful for searching through JSON object.
 
-## API endpoints for querying JSON using JMESPath search implementation under the hood.
+## API endpoints for querying JSON using JMESPath search implementation
 
-Following is the list of all API endpoints with all possible status code and responses.
+Following is the list of API endpoints with all possible status code and responses.
 
 ### Request `GET /countries`
 
@@ -90,9 +88,9 @@ localhost:3000/countries?expression=[?name.common == 'Iran']
 
 #### Validations
 
-* If you do not supply Bacis Authentication `username` and `password` your will receive 401 status.
+* You will receive **401** if you do not supply Bacis Authentication `username` and `password` in your request.
 
-* `expression` param is reuired. If you do not include it or misspell with your request then you will get following error.
+* **`expression`** is required param. You will receive following error if you do not include or misspell it with your request.
 ```
 {
     "Error": "param is missing or the value is empty: expression"
@@ -104,7 +102,7 @@ localhost:3000/countries?expression=[?name.common == 'Iran']
 * ```[?languages.eng == 'English']```
 * ```[?area == `9706961.0`]```
 
-Find more information about JMESPath here: https://jmespath.org/
+**Find more information about JMESPath here: https://jmespath.org/**
 
 ### Request `GET /sorted_data`
 
@@ -134,9 +132,9 @@ localhost:3000/sorted_data?sort_by=population&order_by=desc&page=1&per=5
 
 #### Validations
 
-* If you do not supply Bacis Authentication `username` and `password` your will receive 401 status.
+* You will receive **401** if you do not supply Bacis Authentication `username` and `password` in your request.
 
-* `sort_by` and `order_by` are reuired params. If you do not include it or misspell with your request then you will one of the following errors.
+* **`sort_by`** and **`order_by`** are required params. You will receive following error if you do not include or misspell them with your request.
 ```
 {
     "Error": "param is missing or the value is empty: sort_by"
@@ -147,7 +145,7 @@ localhost:3000/sorted_data?sort_by=population&order_by=desc&page=1&per=5
     "Error": "param is missing or the value is empty: order_by"
 }
 ```
-* If you try to apply sorting on a key (ex: language) that is not an array of numbers or integers then JMESPath can not sort the data and   you will receive following error.
+* JMESPath can not sort the data on a key, valuue of which is not an array of numbers or integers (ex: language), then you will receive following error.
 ```
 {
     "Error": "function sort() expects values to be an array of numbers or integers"
@@ -259,9 +257,9 @@ localhost:3000/countries_jsonb?country_name=India
 
 #### Validations
 
-* If you do not supply Bacis Authentication `username` and `password` your will receive 401 status.
+* You will receive **401** if you do not supply Bacis Authentication `username` and `password` in your request.
 
-* `country_name` param is reuired. If you do not include it or misspell with your request then you will get following error.
+* **`country_name`** param is required. You will receive following error if you do not include or misspell it with your request.
 ```
 {
     "Error": "param is missing or the value is empty: country_name"
@@ -301,9 +299,9 @@ localhost:3000/search_sort_jsonb?data_type=integer&sort_by=population&order_by=d
 
 #### Validations
 
-* If you do not supply Bacis Authentication `username` and `password` your will receive 401 status.
+* You will receive **401** if you do not supply Bacis Authentication `username` and `password` in your request.
 
-* `data_type`, `sort_by` and `order_by` are reuired params. If you do not include it or misspell with your request then you will get one of thefollowing errors.
+* **`data_type`**, **`sort_by`** and **`order_by`** are required params. You will receive following error if you do not include or misspell them with your request.
 ```
 {
     "Error": "param is missing or the value is empty: data_type"
