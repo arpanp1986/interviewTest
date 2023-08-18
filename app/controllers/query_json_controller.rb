@@ -16,7 +16,7 @@ class QueryJsonController < ApplicationController
 
   def sort_data_by_desired_key
     begin
-      params.require(:sort_by) && params.require(:order_by)
+      params.require([:sort_by, :order_by])
       sorted_result = sort_by_expression(data)
 
       if sort_by_expression(data).present?
@@ -53,7 +53,7 @@ class QueryJsonController < ApplicationController
 
   def search_and_sort_using_jsonb
     begin
-      params.require(:data_type) && params.require(:sort_by) && params.require(:order_by)
+      params.require([:data_type, :sort_by, :order_by])
 
       result = if params[:data_type] == 'integer'
               Country.sorted_list_by_for_int(params[:sort_by], params[:order_by])
