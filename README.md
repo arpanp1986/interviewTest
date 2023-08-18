@@ -20,15 +20,15 @@ To run the application locally
   -H "Authorization: Basic Zm9vOmJhcg==" \
   "http://localhost:3000/sorted_data?sort_by=population&order_by=desc&page=1&per=15"
 
-# I have included two implementations
+# The controller included two implementations
   * Using JMESPath search implementation
   * Using postgres DB with columntype as jsonb datatype
     
 Both are efficient and powerful for searching through JSON object.
 
-## API endpoints for querying JSON using JMESPath search implementation
+## API endpoints for querying JSON objects using JMESPath search implementation
 
-Following is the list of API endpoints with all possible status code and responses.
+Following is the list of API endpoints with status codes and sample responses.
 
 ### Request `GET /countries`
 
@@ -145,7 +145,7 @@ localhost:3000/sorted_data?sort_by=population&order_by=desc&page=1&per=5
     "Error": "param is missing or the value is empty: order_by"
 }
 ```
-* JMESPath can not sort the data on a key, valuue of which is not an array of numbers or integers (ex: language), then you will receive following error.
+* JMESPath can not sort the data on a key value of which is not an array of numbers or integers (ex: language). In that case you will receive following error.
 ```
 {
     "Error": "function sort() expects values to be an array of numbers or integers"
@@ -154,11 +154,9 @@ localhost:3000/sorted_data?sort_by=population&order_by=desc&page=1&per=5
 
 
 
+## API endpoints for querying JSON objects using postgres DB with columntype as jsonb
 
-
-## API endpoints for querying JSON using postgres DB with columntype as jsonb.
-
-Following is the list of all API endpoints with all possible status code and responses.
+Following is the list of API endpoints with status codes and sample responses.
 
 ### Request `GET /countries_jsonb`
 
