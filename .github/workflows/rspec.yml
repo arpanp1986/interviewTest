@@ -76,7 +76,7 @@ jobs:
         path: coverage
 
     - name: trigger single Job
-      uses: appleboy/jenkins-action@0.0.2
+      uses: appleboy/jenkins-action@master
       with:
         url: "http://192.168.1.3:8080"
         user: "example"
